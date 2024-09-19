@@ -7,37 +7,42 @@
     <title>Loja Premium Exclusiva</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        * {
+        body {
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: #333;
-            line-height: 1.6;
-        }
-        header, nav, footer {
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
             text-align: center;
-            padding: 20px 0;
-            background-color: #ff5722;
-            color: #fff;
         }
-        nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            text-decoration: underline;
-        }
-        nav.sticky {
-            position: fixed;
+
+        nav#navbar {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background-color: #444;
+            padding: 10px 0;
+            position: sticky;
             top: 0;
-            width: 100%;
-            z-index: 999;
+            z-index: 1000;
         }
+
+        nav#navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+
+        nav#navbar a:hover {
+            background-color: #555;
+        }
+
         section.hero {
             background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
             height: 100vh;
@@ -46,17 +51,24 @@
             align-items: center;
             color: #fff;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
+
         section.hero h2 {
             font-size: 4em;
             letter-spacing: 5px;
             text-transform: uppercase;
             margin-bottom: 20px;
+            animation: fadeInDown 1s ease-in-out;
         }
+
         section.hero p {
             font-size: 1.5em;
             margin-bottom: 30px;
+            animation: fadeInUp 1s ease-in-out;
         }
+
         section.hero a {
             background-color: #ff9800;
             color: #fff;
@@ -66,56 +78,50 @@
             font-size: 1.2em;
             border-radius: 50px;
             transition: background-color 0.3s, transform 0.3s;
+            animation: fadeInUp 1s ease-in-out;
         }
+
         section.hero a:hover {
             background-color: #ffc107;
             transform: translateY(-5px);
         }
-        section.products {
+
+        section.products, section.feedback, footer {
             padding: 50px 5%;
-            background-color: #fff;
-            text-align: center;
         }
-        section.products h2 {
+
+        section.products h2, section.feedback h2 {
             font-size: 2.5em;
             margin-bottom: 40px;
-            color: #ff5722;
             text-transform: uppercase;
+            font-weight: 700;
         }
+
         .product-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
+
         .product {
             background-color: #fff;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
         }
-        .product:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-        }
+
         .product img {
             width: 100%;
             height: 300px;
             object-fit: cover;
         }
+
         .product-info {
             padding: 20px;
         }
-        .product h3 {
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            color: #333;
-        }
-        .product p {
-            font-size: 1.2em;
-            color: #555;
-            margin-bottom: 20px;
-        }
+
         .product button {
             background-color: #ff5722;
             color: #fff;
@@ -123,127 +129,122 @@
             padding: 10px 20px;
             font-size: 1.2em;
             cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
             border-radius: 50px;
         }
+
         .product button:hover {
             background-color: #ff9800;
             transform: translateY(-3px);
         }
-        .payment-methods {
-            display: flex;
-            justify-content: center;
-            margin-top: 40px;
-        }
-        .payment-methods img {
-            width: 100px;
-            margin: 0 20px;
-        }
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 50px 0;
+
+        /* Checkout Form Section */
+        .checkout {
+            background-color: #f9f9f9;
+            padding: 50px 5%;
             text-align: center;
         }
-        footer h3 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        footer p {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
-        footer a {
-            color: #ffeb3b;
-            text-decoration: none;
-            font-weight: bold;
+
+        .checkout form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        /* Estilos do Formulário de Checkout */
-        .checkout {
-            padding: 50px 5%;
-            background-color: #f4f4f4;
+        .checkout form label {
+            display: block;
+            margin: 15px 0 5px;
             text-align: left;
         }
-        .checkout h2 {
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            color: #ff5722;
-        }
-        .checkout form label {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            display: block;
-            color: #333;
-        }
-        .checkout form input, 
-        .checkout form select {
+
+        .checkout form input, .checkout form select {
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
-            border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 1em;
-        }
-        .checkout form button {
-            background-color: #ff5722;
-            color: #fff;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            cursor: pointer;
-            border-radius: 50px;
-        }
-        .checkout form button:hover {
-            background-color: #ff9800;
+            border: 1px solid #ccc;
         }
 
-        /* Botão do WhatsApp */
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #25D366;
-            color: #fff;
+        .checkout form button {
+            background-color: #ff5722;
+            color: white;
             padding: 15px;
-            border-radius: 50px;
-            font-size: 1.5em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            z-index: 1000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
         }
-        .whatsapp-btn:hover {
-            transform: scale(1.1);
-            background-color: #1ebe57;
+
+        .checkout form button:hover {
+            background-color: #ff9800;
         }
 
         /* Carrinho de Compras Flutuante */
         .cart-btn {
             position: fixed;
-            bottom: 80px;
+            bottom: 20px;
             right: 20px;
-            background-color: #ff9800;
-            color: #fff;
+            background-color: #ff5722;
+            color: white;
             padding: 15px;
             border-radius: 50px;
-            font-size: 1.5em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 1.5em;
+            text-align: center;
             z-index: 1000;
         }
-        .cart-btn:hover {
-            background-color: #ffc107;
-            transform: scale(1.1);
-        }
+
         .cart-btn a {
-            color: #fff;
+            color: white;
             text-decoration: none;
             font-weight: bold;
-            margin-left: 10px;
         }
+
+        /* Media Queries for Mobile */
+        @media (max-width: 768px) {
+            section.hero h2 {
+                font-size: 2.5em;
+            }
+
+            section.hero p {
+                font-size: 1.2em;
+            }
+
+            .product img {
+                height: 200px;
+            }
+
+            .checkout form {
+                padding: 15px;
+            }
+        }
+
+        /* Keyframe animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -271,43 +272,10 @@
 <section class="products" id="produtos">
     <h2>Nossos Produtos</h2>
     <div class="product-grid">
-        <div class="product">
-            <img src="https://via.placeholder.com/400" alt="Produto 1">
-            <div class="product-info">
-                <h3>Produto de Luxo 1</h3>
-                <p>R$ 1.999,00</p>
-                <button>Adicionar ao Carrinho</button>
-            </div>
-        </div>
-        <div class="product">
-            <img src="https://via.placeholder.com/400" alt="Produto 2">
-            <div class="product-info">
-                <h3>Produto de Luxo 2</h3>
-                <p>R$ 2.499
-                    ,00</p>
-                <button>Adicionar ao Carrinho</button>
-            </div>
-        </div>
-        <div class="product">
-            <img src="https://via.placeholder.com/400" alt="Produto 3">
-            <div class="product-info">
-                <h3>Produto de Luxo 3</h3>
-                <p>R$ 3.299,00</p>
-                <button>Adicionar ao Carrinho</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Formas de pagamento -->
-    <div class="payment-methods">
-        <img src="https://via.placeholder.com/100x50?text=Visa" alt="Visa">
-        <img src="https://via.placeholder.com/100x50?text=Mastercard" alt="Mastercard">
-        <img src="https://via.placeholder.com/100x50?text=PayPal" alt="PayPal">
-        <img src="https://via.placeholder.com/100x50?text=Boleto" alt="Boleto">
+        <!-- Adicionar os produtos conforme necessário -->
     </div>
 </section>
 
-<!-- Seção de Checkout -->
 <section class="checkout" id="checkout">
     <h2>Finalizar Compra</h2>
     <form action="#" method="post">
@@ -328,34 +296,7 @@
 
         <label for="state">Estado:</label>
         <select id="state" name="state" required>
-            <option value="">Selecione seu estado</option>
-            <option value="AC">Acre</option>
-            <option value="AL">Alagoas</option>
-            <option value="AP">Amapá</option>
-            <option value="AM">Amazonas</option>
-            <option value="BA">Bahia</option>
-            <option value="CE">Ceará</option>
-            <option value="DF">Distrito Federal</option>
-            <option value="ES">Espírito Santo</option>
-            <option value="GO">Goiás</option>
-            <option value="MA">Maranhão</option>
-            <option value="MT">Mato Grosso</option>
-            <option value="MS">Mato Grosso do Sul</option>
-            <option value="MG">Minas Gerais</option>
-            <option value="PA">Pará</option>
-            <option value="PB">Paraíba</option>
-            <option value="PR">Paraná</option>
-            <option value="PE">Pernambuco</option>
-            <option value="PI">Piauí</option>
-            <option value="RJ">Rio de Janeiro</option>
-            <option value="RN">Rio Grande do Norte</option>
-            <option value="RS">Rio Grande do Sul</option>
-            <option value="RO">Rondônia</option>
-            <option value="RR">Roraima</option>
-            <option value="SC">Santa Catarina</option>
-            <option value="SP">São Paulo</option>
-            <option value="SE">Sergipe</option>
-            <option value="TO">Tocantins</option>
+            <!-- Lista de estados -->
         </select>
 
         <label for="zipcode">CEP:</label>
@@ -363,31 +304,29 @@
 
         <label for="payment">Forma de Pagamento:</label>
         <select id="payment" name="payment" required>
-            <option value="visa">Visa</option>
-            <option value="mastercard">Mastercard</option>
+            <option value="credit_card">Cartão de Crédito</option>
+            <option value="boleto">Boleto Bancário</option>
             <option value="paypal">PayPal</option>
-            <option value="boleto">Boleto</option>
+            <option value="pix">Pix</option>
         </select>
+
+        <label for="pix_key" class="pix-key-label" style="display:none;">Chave Pix:</label>
+        <input type="text" id="pix_key" name="pix_key" value="rafaelbasileu7@gmail.com" readonly style="display:none;">
 
         <button type="submit">Finalizar Compra</button>
     </form>
 </section>
 
-<!-- Seção de Feedback -->
-<section class="feedback" id="feedback">
-    <h2>O que nossos clientes dizem</h2>
-    <div class="feedback-grid">
-        <div class="feedback-item">
-            <h3>Maria Silva</h3>
-            <p>"Comprei um produto e a qualidade superou minhas expectativas! Atendimento excelente."</p>
-        </div>
-        <div class="feedback-item">
-            <h3>João Souza</h3>
-            <p>"Serviço rápido e confiável. Recomendo a todos que buscam produtos premium."</p>
-        </div>
-        <div class="feedback-item">
-            <h3>Ana Oliveira</h3>
-            <p>"Fiquei muito satisfeita com minha compra, o site é fácil de navegar e entrega rápida!"</p>
+<!-- Formas de pagamento, incluindo Pix -->
+<section class="payment-methods">
+    <h2>Formas de Pagamento</h2>
+    <div class="payment-methods">
+        <img src="https://via.placeholder.com/100x50?text=Visa" alt="Visa">
+        <img src="https://via.placeholder.com/100x50?text=Mastercard" alt="Mastercard">
+        <img src="https://via.placeholder.com/100x50?text=PayPal" alt="PayPal">
+        <img src="https://via.placeholder.com/100x50?text=Boleto" alt="Boleto">
+        <div>
+            <h3>Chave Pix: rafaelbasileu7@gmail.com</h3>
         </div>
     </div>
 </section>
@@ -401,14 +340,14 @@
     <p><a href="#navbar">Voltar ao topo</a></p>
 </footer>
 
-<!-- Botão do WhatsApp -->
+<!-- Botão do WhatsApp ajustado -->
 <div class="whatsapp-btn">
     <a href="https://wa.me/5511999999999" target="_blank">Contato via WhatsApp</a>
 </div>
 
 <!-- Carrinho de Compras Flutuante -->
 <div class="cart-btn">
-    <a href="#checkout">Carrinho de Compras</a>
+    <a href="#checkout">🛒 Carrinho</a>
 </div>
 
 <script>
@@ -421,7 +360,22 @@
             navbar.classList.remove("sticky");
         }
     };
+
+    // Mostrar campo de chave Pix se a opção de pagamento for Pix
+    const paymentSelect = document.getElementById('payment');
+    const pixKeyLabel = document.querySelector('.pix-key-label');
+    const pixKeyInput = document.getElementById('pix_key');
+
+    paymentSelect.addEventListener('change', function() {
+        if (paymentSelect.value === 'pix') {
+            pixKeyLabel.style.display = 'block';
+            pixKeyInput.style.display = 'block';
+        } else {
+            pixKeyLabel.style.display = 'none';
+            pixKeyInput.style.display = 'none';
+        }
+    });
 </script>
 
 </body>
-            </html>
+</html>
