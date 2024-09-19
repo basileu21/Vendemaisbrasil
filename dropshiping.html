@@ -16,6 +16,7 @@
             font-family: 'Montserrat', sans-serif;
             background-color: #f0f0f0;
             color: #333;
+            overflow-x: hidden;
         }
         header {
             background: linear-gradient(45deg, #ff5722, #ff9800);
@@ -52,6 +53,8 @@
         nav a:hover {
             color: #ffeb3b;
         }
+
+        /* Botão do WhatsApp ajustado */
         .whatsapp-btn {
             position: fixed;
             bottom: 20px;
@@ -61,13 +64,15 @@
             padding: 15px;
             border-radius: 50px;
             font-size: 1.5em;
-            text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: transform 0.3s;
         }
         .whatsapp-btn:hover {
+            transform: scale(1.1);
             background-color: #1ebe57;
         }
         .whatsapp-btn a {
@@ -76,6 +81,7 @@
             font-weight: bold;
             margin-left: 10px;
         }
+
         section.hero {
             background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
             height: 100vh;
@@ -84,16 +90,20 @@
             align-items: center;
             color: #fff;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
         section.hero h2 {
             font-size: 4em;
             letter-spacing: 5px;
             text-transform: uppercase;
             margin-bottom: 20px;
+            animation: fadeInDown 1s ease-in-out;
         }
         section.hero p {
             font-size: 1.5em;
             margin-bottom: 30px;
+            animation: fadeInUp 1s ease-in-out;
         }
         section.hero a {
             background-color: #ff9800;
@@ -104,11 +114,29 @@
             font-size: 1.2em;
             border-radius: 50px;
             transition: background-color 0.3s, transform 0.3s;
+            animation: fadeInUp 1s ease-in-out;
         }
         section.hero a:hover {
             background-color: #ffc107;
             transform: translateY(-5px);
         }
+
+        /* Nova mensagem de contato direto com o vendedor */
+        .contact-message {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
         section.products {
             padding: 50px 5%;
             background-color: #fff;
@@ -120,6 +148,7 @@
             color: #ff5722;
             text-transform: uppercase;
             font-weight: 700;
+            animation: fadeInLeft 1s ease-in-out;
         }
         .product-grid {
             display: grid;
@@ -142,6 +171,7 @@
             width: 100%;
             height: 300px;
             object-fit: cover;
+            animation: zoomIn 0.5s ease-in-out;
         }
         .product-info {
             padding: 20px;
@@ -170,15 +200,19 @@
             background-color: #ff9800;
             transform: translateY(-3px);
         }
+
+        /* Formas de pagamento */
         .payment-methods {
             display: flex;
             justify-content: center;
             margin-top: 40px;
+            animation: fadeInRight 1s ease-in-out;
         }
         .payment-methods img {
             width: 100px;
             margin: 0 20px;
         }
+
         footer {
             background-color: #333;
             color: #fff;
@@ -198,6 +232,8 @@
             text-decoration: none;
             font-weight: bold;
         }
+
+        /* Feedback */
         section.feedback {
             padding: 50px 5%;
             background-color: #ff9800;
@@ -219,6 +255,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
         }
         .feedback-item h3 {
             font-size: 1.5em;
@@ -226,6 +263,71 @@
         }
         .feedback-item p {
             font-size: 1.2em;
+        }
+
+        /* Animações */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translate
+                Y(0);
+            }
+        }
+
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
     </style>
 </head>
@@ -249,6 +351,10 @@
         <p>Explore os produtos mais sofisticados da nossa coleção</p>
         <a href="#produtos">Ver Produtos</a>
     </div>
+    <!-- Mensagem "Todas as compras você fala diretamente com o vendedor" -->
+    <div class="contact-message">
+        Todas as compras você fala diretamente com o vendedor!
+    </div>
 </section>
 
 <section class="products" id="produtos">
@@ -271,8 +377,8 @@
             </div>
         </div>
         <div class="product">
-            <img src="https://via.placeholder.com/400" alt="
-              <div class="product-info">
+            <img src="https://via.placeholder.com/400" alt="Produto 3">
+            <div class="product-info">
                 <h3>Produto de Luxo 3</h3>
                 <p>R$ 3.299,00</p>
                 <button>Comprar Agora</button>
@@ -317,7 +423,7 @@
     <p><a href="#navbar">Voltar ao topo</a></p>
 </footer>
 
-<!-- Botão do WhatsApp -->
+<!-- Botão do WhatsApp ajustado -->
 <div class="whatsapp-btn">
     <a href="https://wa.me/5511999999999" target="_blank">Contato via WhatsApp</a>
 </div>
