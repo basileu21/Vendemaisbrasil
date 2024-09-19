@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Loja Online Sofisticada de Produtos Premium">
+    <title>Loja Premium Exclusiva</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        header {
+            background: linear-gradient(45deg, #ff5722, #ff9800);
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            font-size: 3em;
+            font-weight: 700;
+            letter-spacing: 5px;
+        }
+        nav {
+            background-color: transparent;
+            padding: 15px;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        nav.sticky {
+            background-color: #333;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: 700;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ffeb3b;
+        }
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: #fff;
+            padding: 15px;
+            border-radius: 50px;
+            font-size: 1.5em;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .whatsapp-btn:hover {
+            background-color: #1ebe57;
+        }
+        .whatsapp-btn a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        section.hero {
+            background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+        section.hero h2 {
+            font-size: 4em;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        section.hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+        section.hero a {
+            background-color: #ff9800;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2em;
+            border-radius: 50px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        section.hero a:hover {
+            background-color: #ffc107;
+            transform: translateY(-5px);
+        }
+        section.products {
+            padding: 50px 5%;
+            background-color: #fff;
+            text-align: center;
+        }
+        section.products h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #ff5722;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .product {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        .product:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        .product img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 20px;
+        }
+        .product h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .product p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .product button {
+            background-color: #ff5722;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 50px;
+        }
+        .product button:hover {
+            background-color: #ff9800;
+            transform: translateY(-3px);
+        }
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .payment-methods img {
+            width: 100px;
+            margin: 0 20px;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+        footer h3 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        footer p {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        footer a {
+            color: #ffeb3b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section.feedback {
+            padding: 50px 5%;
+            background-color: #ff9800;
+            color: #fff;
+            text-align: center;
+        }
+        section.feedback h2 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+        }
+        .feedback-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .feedback-item {
+            background-color: #fff;
+            color: #333;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .feedback-item h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        .feedback-item p {
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Loja Premium</h1>
+</header>
+
+<nav id="navbar">
+    <a href="#home">Início</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#sobre">Sobre Nós</a>
+    <a href="#feedback">Feedback</a>
+    <a href="#contato">Contato</a>
+</nav>
+
+<section class="hero" id="home">
+    <div>
+        <h2>Luxo e Exclusividade</h2>
+        <p>Explore os produtos mais sofisticados da nossa coleção</p>
+        <a href="#produtos">Ver Produtos</a>
+    </div>
+</section>
+
+<section class="products" id="produtos">
+    <h2>Nossos Produtos</h2>
+    <div class="product-grid">
+        <div class="product">
+            <img src="https://via.placeholder.com/400" alt="Produto 1">
+            <div class="product-info">
+                <h3>Produto de Luxo 1</h3>
+                <p>R$ 1.999,00</p>
+                <button>Comprar Agora</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/400" alt="Produto 2">
+            <div class="product-info">
+                <h3>Produto de Luxo 2</h3>
+                <p>R$ 2.499,00</p>
+                <button>Comprar Agora</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/400" alt="
+              <div class="product-info">
+                <h3>Produto de Luxo 3</h3>
+                <p>R$ 3.299,00</p>
+                <button>Comprar Agora</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Formas de pagamento -->
+    <div class="payment-methods">
+        <img src="https://via.placeholder.com/100x50?text=Visa" alt="Visa">
+        <img src="https://via.placeholder.com/100x50?text=Mastercard" alt="Mastercard">
+        <img src="https://via.placeholder.com/100x50?text=PayPal" alt="PayPal">
+        <img src="https://via.placeholder.com/100x50?text=Boleto" alt="Boleto">
+    </div>
+</section>
+
+<!-- Seção de Feedback -->
+<section class="feedback" id="feedback">
+    <h2>O que nossos clientes dizem</h2>
+    <div class="feedback-grid">
+        <div class="feedback-item">
+            <h3>Maria Silva</h3>
+            <p>"Comprei um produto e a qualidade superou minhas expectativas! Atendimento excelente."</p>
+        </div>
+        <div class="feedback-item">
+            <h3>João Souza</h3>
+            <p>"Serviço rápido e confiável. Recomendo a todos que buscam produtos premium."</p>
+        </div>
+        <div class="feedback-item">
+            <h3>Ana Oliveira</h3>
+            <p>"Fiquei muito satisfeita com minha compra, o site é fácil de navegar e entrega rápida!"</p>
+        </div>
+    </div>
+</section>
+
+<!-- Seção de Contato -->
+<footer id="contato">
+    <h3>Entre em Contato</h3>
+    <p>Telefone: (11) 1234-5678</p>
+    <p>Email: contato@lojaexclusiva.com.br</p>
+    <p>Endereço: Rua das Lojas, 123 - São Paulo, SP</p>
+    <p><a href="#navbar">Voltar ao topo</a></p>
+</footer>
+
+<!-- Botão do WhatsApp -->
+<div class="whatsapp-btn">
+    <a href="https://wa.me/5511999999999" target="_blank">Contato via WhatsApp</a>
+</div>
+
+<script>
+    // Adicionar efeito sticky ao menu de navegação
+    window.onscroll = function() {
+        var navbar = document.getElementById("navbar");
+        if (window.pageYOffset > 100) {
+            navbar.classList.add("sticky");
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    };
+</script>
+
+</body>
+</html>
