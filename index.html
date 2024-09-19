@@ -12,16 +12,14 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            color: #333;
         }
 
-        /* Cabeçalho e Navegação */
         header {
             background-color: #ff5722;
+            color: white;
             padding: 20px;
             text-align: center;
-            color: white;
-            font-size: 2em;
+            font-size: 2.5em;
             font-weight: bold;
         }
 
@@ -30,14 +28,14 @@
             color: #fff;
             display: flex;
             justify-content: center;
-            padding: 10px 0;
+            padding: 15px;
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
         nav a {
-            color: #fff;
+            color: white;
             margin: 0 20px;
             text-decoration: none;
             text-transform: uppercase;
@@ -49,47 +47,40 @@
             color: #ff9800;
         }
 
-        /* Seção Hero */
         section.hero {
             background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
-            height: 100vh;
+            height: 90vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #fff;
             text-align: center;
+            color: white;
         }
 
         section.hero h2 {
-            font-size: 4em;
-            text-transform: uppercase;
-            letter-spacing: 5px;
+            font-size: 3em;
             margin-bottom: 20px;
-            animation: fadeInDown 1s ease-in-out;
         }
 
         section.hero p {
             font-size: 1.5em;
             margin-bottom: 30px;
-            animation: fadeInUp 1s ease-in-out;
         }
 
         section.hero a {
             background-color: #ff9800;
-            color: #fff;
+            color: white;
             padding: 15px 30px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
-            border-radius: 50px;
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            transition: background-color 0.3s;
         }
 
         section.hero a:hover {
             background-color: #ffc107;
-            transform: translateY(-5px);
         }
 
-        /* Produtos */
         section.products {
             padding: 50px 5%;
             background-color: #fff;
@@ -100,7 +91,6 @@
             font-size: 2.5em;
             margin-bottom: 40px;
             color: #ff5722;
-            text-transform: uppercase;
         }
 
         .product-grid {
@@ -114,8 +104,6 @@
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
         }
 
         .product:hover {
@@ -141,72 +129,82 @@
         .product p {
             font-size: 1.2em;
             margin-bottom: 20px;
+            color: #555;
         }
 
         .product button {
             background-color: #ff5722;
-            color: #fff;
+            color: white;
             padding: 10px 20px;
-            font-size: 1.2em;
-            cursor: pointer;
+            border: none;
             border-radius: 50px;
-            transition: background-color 0.3s, transform 0.3s;
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
         .product button:hover {
             background-color: #ff9800;
-            transform: translateY(-3px);
         }
 
-        /* Formas de pagamento */
-        .payment-methods {
-            display: flex;
-            justify-content: center;
-            margin-top: 40px;
-        }
-
-        .payment-methods img {
-            width: 100px;
-            margin: 0 20px;
-        }
-
-        /* Feedback */
-        section.feedback {
+        /* Checkout Form */
+        section.checkout {
             padding: 50px 5%;
-            background-color: #ff9800;
-            color: #fff;
-            text-align: center;
+            background-color: #f7f7f7;
         }
 
-        section.feedback h2 {
+        section.checkout h2 {
             font-size: 2.5em;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #ff5722;
         }
 
-        .feedback-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .feedback-item {
-            background-color: #fff;
-            color: #333;
-            padding: 20px;
+        .checkout-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        /* Rodapé */
-        footer {
-            background-color: #333;
-            color: #fff;
-            padding: 50px 0;
-            text-align: center;
+        .checkout-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #333;
         }
 
-        footer p, footer h3 {
-            margin: 10px 0;
+        .checkout-form input, .checkout-form select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .checkout-form button {
+            background-color: #ff5722;
+            color: white;
+            padding: 15px;
+            border: none;
+            width: 100%;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .checkout-form button:hover {
+            background-color: #ff9800;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 30px 0;
+            text-align: center;
         }
 
         footer a {
@@ -218,13 +216,13 @@
             color: #ffc107;
         }
 
-        /* Botão WhatsApp */
+        /* WhatsApp Button */
         .whatsapp-btn {
             position: fixed;
             bottom: 20px;
             right: 20px;
             background-color: #25D366;
-            color: #fff;
+            color: white;
             padding: 15px;
             border-radius: 50px;
             font-size: 1.5em;
@@ -233,18 +231,15 @@
             justify-content: center;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             z-index: 1000;
-            transition: transform 0.3s;
         }
 
         .whatsapp-btn:hover {
             transform: scale(1.1);
-            background-color: #1ebe57;
         }
 
         .whatsapp-btn a {
-            color: #fff;
+            color: white;
             text-decoration: none;
-            font-weight: bold;
         }
     </style>
 </head>
@@ -252,18 +247,17 @@
 
 <header>Loja Premium</header>
 
-<nav id="navbar">
+<nav>
     <a href="#home">Início</a>
     <a href="#produtos">Produtos</a>
-    <a href="#sobre">Sobre Nós</a>
-    <a href="#feedback">Feedback</a>
+    <a href="#checkout">Finalizar Compra</a>
     <a href="#contato">Contato</a>
 </nav>
 
 <section class="hero" id="home">
     <div>
-        <h2>Luxo e Exclusividade</h2>
-        <p>Explore os produtos mais sofisticados da nossa coleção</p>
+        <h2>Produtos Exclusivos e Premium</h2>
+        <p>Descubra o luxo em cada detalhe</p>
         <a href="#produtos">Ver Produtos</a>
     </div>
 </section>
@@ -271,28 +265,104 @@
 <section class="products" id="produtos">
     <h2>Nossos Produtos</h2>
     <div class="product-grid">
-        <!-- Produtos aqui -->
+        <div class="product">
+            <img src="https://via.placeholder.com/400" alt="Produto 1">
+            <div class="product-info">
+                <h3>Produto Premium 1</h3>
+                <p>R$ 1.999,00</p>
+                <button>Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/400" alt="Produto 2">
+            <div class="product-info">
+                <h3>Produto Premium 2</h3>
+                <p>R$ 2.499,00</p>
+                <button>Adicionar ao Carrinho</button>
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://via.placeholder.com/400" alt="Produto 3">
+            <div class="product-info">
+                <h3>Produto Premium 3</h3>
+                <p>R$ 3.299,00</p>
+                <button>Adicionar ao Carrinho</button>
+            </div>
+        </div>
     </div>
 </section>
 
-<section class="feedback" id="feedback">
-    <h2>O que nossos clientes dizem</h2>
-    <div class="feedback-grid">
-        <!-- Feedback aqui -->
+<!-- Seção de Checkout -->
+<section class="checkout" id="checkout">
+    <h2>Finalizar Compra</h2>
+    <div class="checkout-form">
+        <form action="">
+            <label for="name">Nome Completo</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Telefone</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="address">Endereço</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="city">Cidade</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="state">Estado</label>
+            <select id="state" name="state" required>
+                <option value="">Selecione seu estado</option>
+                <option value="SP">São Paulo</option>
+                <option value="RJ">Rio de Janeiro</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="BA">Bahia</option>
+                <!-- Adicione mais estados conforme necessário -->
+            </select>
+
+            <label for="zipcode">CEP</label>
+            <input type="text" id="zipcode" name="zipcode" required>
+
+            <label for="payment">Método de Pagamento</label>
+            <select id="payment" name="payment" required>
+                <option value="creditcard">Cartão de Crédito</option>
+                <option value="paypal">PayPal</option>
+                <option value="boleto">Boleto Bancário</option>
+                <!-- Adicione outros métodos de pagamento conforme necessário -->
+            </select>
+
+            <button type="submit">Finalizar Compra</button>
+        </form>
     </div>
 </section>
 
+<!-- Seção de Contato -->
 <footer id="contato">
     <h3>Entre em Contato</h3>
     <p>Telefone: (11) 1234-5678</p>
     <p>Email: contato@lojaexclusiva.com.br</p>
     <p>Endereço: Rua das Lojas, 123 - São Paulo, SP</p>
-    <p><a href="#navbar">Voltar ao topo</a></p>
+    <p><a href="#home">Voltar ao topo</a></p>
 </footer>
 
+<!-- Botão do WhatsApp -->
 <div class="whatsapp-btn">
     <a href="https://wa.me/5511999999999" target="_blank">Contato via WhatsApp</a>
 </div>
+
+<script>
+    // Adicionar efeito sticky ao menu de navegação
+    window.onscroll = function() {
+        var navbar = document.querySelector("nav");
+        if (window.pageYOffset > 100) {
+            navbar.classList.add("sticky");
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    };
+</script>
 
 </body>
 </html>
